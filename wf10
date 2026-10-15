@@ -1,0 +1,52 @@
+use library
+db.books.insertMany([
+  {
+    title: "1984",
+    author: "George Orwell",
+    year: 1949,
+    genre: "Dystopian"
+  },
+  {
+    title: "The Great Gatsby",
+    author: "F. Scott Fitzgerald",
+    year: 1925,
+    genre: "Classic"
+  },
+  {
+    title: "Moby Dick",
+    author: "Herman Melville",
+    year: 1851,
+    genre: "Adventure"
+  }
+])
+db.books.find()[
+  {
+    title: "1984",
+    author: "George Orwell",
+    year: 1949,
+    genre: "Dystopian"
+  },
+  {
+    title: "The Great Gatsby",
+    author: "F. Scott Fitzgerald",
+    year: 1925,
+    genre: "Classic"
+  },
+  {
+    title: "Moby Dick",
+    author: "Herman Melville",
+    year: 1851,
+    genre: "Adventure"
+  }
+]db.books.find({
+  author: "George Orwell"
+})db.books.updateOne(
+  { title: "1984" },
+  { $set: { year: 1950 } }
+){
+  acknowledged: true,
+  matchedCount: 1,
+  modifiedCount: 1
+}db.books.deleteOne({
+  title: "The Great Gatsby"
+})db.books.find().pretty()
